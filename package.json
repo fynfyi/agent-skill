@@ -1,0 +1,37 @@
+{
+  "name": "fyn-finance",
+  "version": "1.0.0",
+  "description": "FYN Finance — Your agent's financial brain. Query transactions, receipts, budgets, and spending insights.",
+  "keywords": [
+    "fyn",
+    "finance",
+    "personal-finance",
+    "agent",
+    "ai-agent",
+    "openclaw",
+    "clawhub",
+    "skill",
+    "transactions",
+    "budgets",
+    "receipts"
+  ],
+  "author": "FYN <hello@fyn.fyi>",
+  "license": "MIT",
+  "homepage": "https://fyn.fyi/agents",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fynfyi/agent-skill"
+  },
+  "bugs": {
+    "url": "https://github.com/fynfyi/agent-skill/issues"
+  },
+  "clawhub": {
+    "slug": "fyn-finance",
+    "name": "FYN Finance",
+    "emoji": "\uD83D\uDCB0",
+    "category": "finance",
+    "requires": {
+      "env": ["FYN_API_KEY"]
+    }
+  }
+}
