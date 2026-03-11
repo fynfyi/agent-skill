@@ -1,6 +1,6 @@
 ---
 name: fyn-finance
-description: Query your personal finances — transactions, receipts, budgets, spending insights. Connects to FYN (fyn.fyi) for bank syncing + receipt AI.
+description: Query your personal finances — transactions, receipts, budgets, spending insights, financial health scores, and AI-powered recommendations. Connects to FYN (fyn.fyi) for bank syncing + receipt AI.
 metadata:
   openclaw:
     emoji: "\U0001F4B0"
@@ -46,6 +46,14 @@ Query bank transactions, scan receipts with AI, check budgets, and get spending 
 - "Can I afford a $500 purchase?"
 - "What are my subscriptions costing me?"
 - "What's my savings rate?"
+
+### Insights
+- "Give me my daily financial briefing"
+- "Are there any spending alerts?"
+- "Where can I save money?"
+- "How's my financial health?"
+- "Give me a weekly recap"
+- "Any cheaper alternatives for things I buy?"
 
 ### Portfolio
 - "Show my portfolio summary"
@@ -226,6 +234,102 @@ Body:
 {
   "amount": 499.99,
   "description": "optional context"
+}
+```
+
+### Insights
+
+#### GET /insights/daily
+Returns today's personalized financial briefing — top insights from the last 24 hours, sorted by score.
+
+Query params:
+- `limit` (number, default 10, max 20)
+
+Response includes an array of insights, each with `type`, `category`, `severity`, `title`, `detail`, `suggestion`, `score`, and `data`.
+
+#### GET /insights/alerts
+Returns active anomalies and warnings only (spending spikes, unusual charges, etc.).
+
+#### GET /insights/opportunities
+Returns money-saving suggestions with total potential savings.
+
+Response:
+```json
+{
+  "opportunityCount": 3,
+  "totalPotentialSavings": 47.50,
+  "opportunities": [...]
+}
+```
+
+#### GET /insights/weekly
+Returns a weekly financial recap (last 7 days), grouped into five categories: anomalies, opportunities, milestones, trends, and recommendations.
+
+#### GET /insights/health
+Returns a financial health score (0-100) with a letter grade and breakdown across 5 weighted factors: savings rate (30%), emergency fund (25%), spending health (20%), subscription load (15%), and account diversity (10%).
+
+Response:
+```json
+{
+  "score": 72,
+  "grade": "B",
+  "factors": {
+    "savingsRate": { "score": 65, "detail": "Saving 12% of income" },
+    "emergencyFund": { "score": 80, "detail": "3.2 months of expenses covered" }
+  },
+  "topRecommendation": "Increase savings rate to 15% to improve your score"
+}
+```
+
+#### POST /insights/ask
+Natural language insight query — ask any financial question and get a synthesized answer with supporting insights.
+
+Body:
+```json
+{
+  "query": "Am I spending too much on subscriptions?"
+}
+```
+
+Response:
+```json
+{
+  "query": "Am I spending too much on subscriptions?",
+  "answer": "Your subscription spending is $127/mo across 8 services...",
+  "relevantInsights": [...],
+  "insightsSearched": 42
+}
+```
+
+### Recommendations
+
+#### GET /recommendations
+Returns product recommendations with savings — cheaper alternatives found from your receipt purchases.
+
+Query params:
+- `limit` (number, default 20, max 100)
+- `min_savings` (number, filter by minimum savings amount)
+
+Response:
+```json
+{
+  "recommendations": [
+    {
+      "item_description": "Organic Whole Milk 1gal",
+      "receipt_price": 7.99,
+      "title": "365 Organic Whole Milk",
+      "price": 5.49,
+      "savings_amount": 2.50,
+      "savings_percent": 31.3,
+      "affiliate_url": "...",
+      "rating": 4.6,
+      "review_count": 1247
+    }
+  ],
+  "summary": {
+    "count": 12,
+    "total_potential_savings": 47.50
+  }
 }
 ```
 

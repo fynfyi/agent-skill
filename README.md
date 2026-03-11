@@ -10,9 +10,11 @@ Your agent can:
 - Query bank transactions and spending patterns
 - Check account balances and net worth
 - Monitor budgets and subscriptions
+- Get daily briefings, alerts, and financial health scores
+- Ask natural language questions about your finances
 - Search receipts with AI (Pro)
 - Check affordability of purchases (Pro)
-- Get price insights and find better deals (Pro)
+- Get price insights, find better deals, and product recommendations (Pro)
 
 ## Install
 
@@ -63,6 +65,13 @@ All endpoints use `https://api.fyn.fyi/v1/agent` as the base URL.
 | `/cashflow/savings-rate` | GET | Savings rate |
 | `/portfolio` | GET | Portfolio summary |
 | `/holdings` | GET | Individual holdings |
+| `/insights/daily` | GET | Daily financial briefing |
+| `/insights/alerts` | GET | Active anomalies & warnings |
+| `/insights/opportunities` | GET | Money-saving suggestions |
+| `/insights/weekly` | GET | Weekly financial recap |
+| `/insights/health` | GET | Financial health score (0-100) |
+| `/insights/ask` | POST | Natural language insight query |
+| `/recommendations` | GET | Product recommendations with savings |
 
 ### Pro Tier ($9.99/mo)
 

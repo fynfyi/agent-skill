@@ -1,7 +1,7 @@
 {
   "name": "fyn-finance",
-  "version": "1.0.0",
-  "description": "FYN Finance — Your agent's financial brain. Query transactions, receipts, budgets, and spending insights.",
+  "version": "1.1.0",
+  "description": "FYN Finance — Your agent's financial brain. Query transactions, receipts, budgets, spending insights, financial health scores, and AI recommendations.",
   "keywords": [
     "fyn",
     "finance",
