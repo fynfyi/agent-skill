@@ -76,31 +76,3 @@ curl -s https://api.fyn.fyi/v1/agent/receipts/rag \
   }
 }
 ```
-
----
-
-## Price Insights
-
-**User:** "Am I overpaying for eggs?"
-
-```bash
-curl -s https://api.fyn.fyi/v1/agent/receipts/insights \
-  -H "Authorization: Bearer $FYN_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"item": "eggs"}'
-```
-
-**Agent responds:** "Based on your receipts, you pay an average of $5.89 for eggs. Costco is your cheapest option at $4.99. Whole Foods is the most expensive at $7.49."
-
----
-
-## Find Better Deals
-
-**User:** "Where can I save money on groceries?"
-
-```bash
-curl -s https://api.fyn.fyi/v1/agent/receipts/deals \
-  -H "Authorization: Bearer $FYN_API_KEY"
-```
-
-**Agent responds:** "Based on your purchase history, switching these items to cheaper stores could save you $23/month: milk (Trader Joe's vs Whole Foods saves $2.50/gallon), bread (Costco vs local bakery saves $3/loaf)."

@@ -1,6 +1,6 @@
 ---
 name: fyn-finance
-description: Query your personal finances — transactions, receipts, budgets, spending insights, financial health scores, and AI-powered recommendations. Connects to FYN (fyn.fyi) for bank syncing + receipt AI.
+description: Query your personal finances — transactions, receipts, budgets, spending insights, and financial health scores. Connects to FYN (fyn.fyi) for bank syncing + receipt AI.
 metadata:
   openclaw:
     emoji: "\U0001F4B0"
@@ -40,7 +40,6 @@ Query bank transactions, scan receipts with AI, check budgets, and get spending 
 ### Receipts (Pro)
 - "What did I buy at [merchant]?"
 - "Search my receipts for [item]"
-- "Am I overpaying for groceries?"
 
 ### Intelligence (Pro)
 - "Can I afford a $500 purchase?"
@@ -53,7 +52,6 @@ Query bank transactions, scan receipts with AI, check budgets, and get spending 
 - "Where can I save money?"
 - "How's my financial health?"
 - "Give me a weekly recap"
-- "Any cheaper alternatives for things I buy?"
 
 ### Portfolio
 - "Show my portfolio summary"
@@ -210,20 +208,6 @@ Body:
 }
 ```
 
-#### POST /receipts/insights
-Get price insights for items you buy regularly.
-
-Body:
-```json
-{
-  "item": "milk",
-  "merchant": "optional"
-}
-```
-
-#### GET /receipts/deals
-Find better deals based on your purchase history.
-
 ### Intelligence (Pro)
 
 #### POST /affordability
@@ -298,38 +282,6 @@ Response:
   "answer": "Your subscription spending is $127/mo across 8 services...",
   "relevantInsights": [...],
   "insightsSearched": 42
-}
-```
-
-### Recommendations
-
-#### GET /recommendations
-Returns product recommendations with savings — cheaper alternatives found from your receipt purchases.
-
-Query params:
-- `limit` (number, default 20, max 100)
-- `min_savings` (number, filter by minimum savings amount)
-
-Response:
-```json
-{
-  "recommendations": [
-    {
-      "item_description": "Organic Whole Milk 1gal",
-      "receipt_price": 7.99,
-      "title": "365 Organic Whole Milk",
-      "price": 5.49,
-      "savings_amount": 2.50,
-      "savings_percent": 31.3,
-      "affiliate_url": "...",
-      "rating": 4.6,
-      "review_count": 1247
-    }
-  ],
-  "summary": {
-    "count": 12,
-    "total_potential_savings": 47.50
-  }
 }
 ```
 

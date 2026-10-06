@@ -14,7 +14,6 @@ Your agent can:
 - Ask natural language questions about your finances
 - Search receipts with AI (Pro)
 - Check affordability of purchases (Pro)
-- Get price insights, find better deals, and product recommendations (Pro)
 
 ## Install
 
@@ -71,7 +70,6 @@ All endpoints use `https://api.fyn.fyi/v1/agent` as the base URL.
 | `/insights/weekly` | GET | Weekly financial recap |
 | `/insights/health` | GET | Financial health score (0-100) |
 | `/insights/ask` | POST | Natural language insight query |
-| `/recommendations` | GET | Product recommendations with savings |
 
 ### Pro Tier ($9.99/mo)
 
@@ -79,8 +77,6 @@ All endpoints use `https://api.fyn.fyi/v1/agent` as the base URL.
 |----------|--------|-------------|
 | `/receipts/search` | POST | Search receipt line items |
 | `/receipts/rag` | POST | Chat with receipts (RAG) |
-| `/receipts/insights` | POST | Price insights |
-| `/receipts/deals` | GET | Find better deals |
 | `/affordability` | POST | Affordability check |
 
 ## Rate Limits
