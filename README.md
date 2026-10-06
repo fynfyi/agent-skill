@@ -91,7 +91,7 @@ All endpoints use `https://api.fyn.fyi/v1/agent` as the base URL.
 See the [examples/](./examples/) directory:
 
 - [basic-query.md](./examples/basic-query.md) — Transactions, spending breakdown, balances
-- [receipt-search.md](./examples/receipt-search.md) — Receipt AI search, RAG, price insights
+- [receipt-search.md](./examples/receipt-search.md) — Receipt AI search and RAG
 - [budget-check.md](./examples/budget-check.md) — Budgets, affordability, subscriptions
 
 ## Authentication
