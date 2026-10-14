@@ -211,15 +211,18 @@ Body:
 ### Intelligence (Pro)
 
 #### POST /affordability
-Check if a purchase is affordable given your current finances.
+Ask FYN about a purchase before you spend. FYN answers the way Ask FYN does in chat: checking balance, what's left this month in that budget category, what's left after the bills still due, and whether the bank data is current. Preview only: FYN approves, holds and spends nothing. `can_afford` is still based on balance minus a safety buffer.
 
-Body:
+Body (`amount` required; `merchant`, `category`, `recurring` optional, and needed for the budget-category answer):
 ```json
 {
-  "amount": 499.99,
-  "description": "optional context"
+  "amount": 48,
+  "merchant": "Costco",
+  "recurring": false
 }
 ```
+
+Response adds `budget_category`, `budget_left`, `left_after_bills`, `upcoming_bills_total`, `data_fresh`, `data_as_of` and `advice` to the existing `can_afford`, `current_balance`, `available_for_purchase` and `recommendation` fields.
 
 ### Insights
 
