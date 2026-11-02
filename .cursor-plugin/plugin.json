@@ -1,0 +1,38 @@
+{
+  "name": "fyn",
+  "displayName": "FYN",
+  "version": "1.0.0",
+  "minClientVersions": {
+    "cursor": "3.13.0"
+  },
+  "description": "Read-only personal finance for AI agents — budgets, receipts, net worth, bills. OAuth 2.1, no bank password to the model.",
+  "author": {
+    "name": "FYN FYI LLC",
+    "email": "brian@fyn.fyi"
+  },
+  "publisher": "FYN FYI LLC",
+  "homepage": "https://fyn.fyi/docs/mcp",
+  "repository": "https://github.com/fynfyi/agent-skill",
+  "license": "MIT",
+  "logo": "assets/logo.png",
+  "keywords": [
+    "finance",
+    "budget",
+    "bills",
+    "receipts",
+    "net-worth",
+    "personal-finance",
+    "mcp",
+    "oauth"
+  ],
+  "category": "integrations",
+  "tags": [
+    "fyn",
+    "finance",
+    "budgets",
+    "receipts",
+    "mcp"
+  ],
+  "skills": "./skills",
+  "mcpServers": "./mcp.json"
+}
